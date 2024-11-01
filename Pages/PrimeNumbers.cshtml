@@ -1,0 +1,25 @@
+@page
+@model PrimeNumbersModel
+@{
+    ViewData["Title"] = "Find Prime Numbers";
+}
+
+<h2>Find Prime Numbers</h2>
+
+<form method="post">
+    <div>
+        <label>From Number:</label>
+        <input type="number" asp-for="FromNumber" required />
+    </div>
+    <div>
+        <label>To Number:</label>
+        <input type="number" asp-for="ToNumber" required />
+    </div>
+    <button type="submit">Find Primes</button>
+</form>
+
+@if (Model.PrimeNumbers != null)
+{
+    <h3>Prime numbers between @Model.FromNumber and @Model.ToNumber:</h3>
+    <p>@String.Join(", ", Model.PrimeNumbers)</p>
+}
